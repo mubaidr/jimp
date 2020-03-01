@@ -64,6 +64,11 @@ function loadFromURL(options, cb) {
       return cb(err);
     }
 
+    if ('headers' in response && 'location' in response.headers) {
+      options.url = response.headers.location;
+      return loadFromURL(options, cb);
+    }
+
     if (typeof data === 'object' && Buffer.isBuffer(data)) {
       return cb(null, data);
     }
@@ -1125,6 +1130,7 @@ export function jimpEvMethod(methodName, evName, method) {
 
         cb.apply(this, args);
       };
+
       args[args.length - 1] = wrappedCb;
     } else {
       wrappedCb = false;

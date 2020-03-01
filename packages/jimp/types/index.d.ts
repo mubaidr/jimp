@@ -1,24 +1,29 @@
 // TypeScript Version: 2.8
 
+
+declare const DepreciatedJimp: DepreciatedJimp;
+
+export = DepreciatedJimp;
+
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-declare class Jimp {
+interface DepreciatedJimp {
   // Constructors
-  constructor(path: string, cb?: ImageCallback);
-  constructor(urlOptions: URLOptions, cb?: ImageCallback);
-  constructor(image: Jimp, cb?: ImageCallback);
-  constructor(data: Buffer | Bitmap, cb?: ImageCallback);
-  constructor(w: number, h: number, cb?: ImageCallback);
-  constructor(
+  new(path: string, cb?: ImageCallback): this;
+  new(urlOptions: URLOptions, cb?: ImageCallback): this;
+  new(image: DepreciatedJimp, cb?: ImageCallback): this;
+  new(data: Buffer | Bitmap, cb?: ImageCallback): this;
+  new(w: number, h: number, cb?: ImageCallback): this;
+  new(
     w: number,
     h: number,
     background?: number | string,
     cb?: ImageCallback
-  );
+  ): this;
   // For custom constructors when using Jimp.appendConstructorOption
-  constructor(...args: any[]);
-  prototype: Jimp;
+  new(...args: any[]): this;
+  prototype: this;
 
   // Constants
   AUTO: -1;
@@ -118,7 +123,7 @@ declare class Jimp {
   getExtension(): string;
   distanceFromHash(hash: string): number;
   write(path: string, cb?: ImageCallback): this;
-  writeAsync(path: string): Promise<Jimp>;
+  writeAsync(path: string): Promise<this>;
   deflateLevel(l: number, cb?: ImageCallback): this;
   deflateStrategy(s: number, cb?: ImageCallback): this;
   colorType(s: number, cb?: ImageCallback): this;
@@ -182,7 +187,7 @@ declare class Jimp {
     y: number,
     w: number,
     h: number
-  ): IterableIterator<{ x: number; y: number; idx: number; image: Jimp }>;
+  ): IterableIterator<{ x: number; y: number; idx: number; image: DepreciatedJimp }>;
   crop(x: number, y: number, w: number, h: number, cb?: ImageCallback): this;
   cropQuiet(
     x: number,
@@ -259,7 +264,7 @@ declare class Jimp {
   scale(f: number, mode?: string, cb?: ImageCallback): this;
   scaleToFit(w: number, h: number, cb?: ImageCallback): this;
   scaleToFit(w: number, h: number, mode?: string, cb?: ImageCallback): this;
-  displace(map: Jimp, offset: number, cb?: ImageCallback): this;
+  displace(map: DepreciatedJimp, offset: number, cb?: ImageCallback): this;
   autocrop(tolerance?: number, cb?: ImageCallback): this;
   autocrop(cropOnlyFrames?: boolean, cb?: ImageCallback): this;
   autocrop(
@@ -316,15 +321,15 @@ declare class Jimp {
   invert(cb?: ImageCallback): this;
   gaussian(r: number, cb?: ImageCallback): this;
   composite(
-    src: Jimp,
+    src: DepreciatedJimp,
     x: number,
     y: number,
     options?: BlendMode,
     cb?: ImageCallback
   ): this;
-  blit(src: Jimp, x: number, y: number, cb?: ImageCallback): this;
+  blit(src: DepreciatedJimp, x: number, y: number, cb?: ImageCallback): this;
   blit(
-    src: Jimp,
+    src: DepreciatedJimp,
     x: number,
     y: number,
     srcx: number,
@@ -333,46 +338,50 @@ declare class Jimp {
     srch: number,
     cb?: ImageCallback
   ): this;
-  mask(src: Jimp, x: number, y: number, cb?: ImageCallback): this;
+  mask(src: this, x: number, y: number, cb?: ImageCallback): this;
 
   // Functions
   appendConstructorOption<T extends any[]>(
     name: string,
     test: (...args: T[]) => boolean,
     run: (
-      this: Jimp,
-      resolve: (jimp: Jimp) => any,
+      this: this,
+      resolve: (jimp: this) => any,
       reject: (reason: Error) => any,
       ...args: T[]
     ) => any
   ): void;
-  read(path: string): Promise<Jimp>;
-  read(image: Jimp): Promise<Jimp>;
-  read(data: Buffer): Promise<Jimp>;
-  read(w: number, h: number, background?: number | string): Promise<Jimp>;
-  create(path: string): Promise<Jimp>;
-  create(image: Jimp): Promise<Jimp>;
-  create(data: Buffer): Promise<Jimp>;
-  create(w: number, h: number, background?: number | string): Promise<Jimp>;
+  read(path: string, cb?: ImageCallback): Promise<this>;
+  read(image: this, cb?: ImageCallback): Promise<this>;
+  read(data: Buffer, cb?: ImageCallback): Promise<this>;
+  read(
+    w: number,
+    h: number,
+    background?: number | string,
+    cb?: ImageCallback
+  ): Promise<this>;  create(path: string): Promise<this>;
+  create(image: this): Promise<this>;
+  create(data: Buffer): Promise<this>;
+  create(w: number, h: number, background?: number | string): Promise<this>;
   rgbaToInt(
     r: number,
     g: number,
     b: number,
     a: number,
-    cb: GenericCallback<number, any, Jimp>
+    cb: GenericCallback<number, any, this>
   ): number;
   intToRGBA(i: number, cb?: GenericCallback<RGBA>): RGBA;
   cssColorToHex(cssColor: string): number;
   limit255(n: number): number;
   diff(
-    img1: Jimp,
-    img2: Jimp,
+    img1: this,
+    img2: this,
     threshold?: number
   ): {
     percent: number;
-    image: Jimp;
+    image: DepreciatedJimp;
   };
-  distance(img1: Jimp, img2: Jimp): number;
+  distance(img1: this, img2: this): number;
   compareHashes(hash1: string, hash2: string): number;
   colorDiff(rgba1: RGB, rgba2: RGB): number;
   colorDiff(rgba1: RGBA, rgba2: RGBA): number;
@@ -411,10 +420,6 @@ declare class Jimp {
   ): this;
 }
 
-declare const JimpInst: Jimp;
-
-export default JimpInst;
-
 type GenericCallback<T, U = any, TThis = any> = (
   this: TThis,
   err: Error | null,
@@ -422,9 +427,9 @@ type GenericCallback<T, U = any, TThis = any> = (
 ) => U;
 
 type ImageCallback<U = any> = (
-  this: Jimp,
+  this: DepreciatedJimp,
   err: Error | null,
-  value: Jimp,
+  value: DepreciatedJimp,
   coords: {
     x: number;
     y: number;
@@ -467,26 +472,26 @@ type ListenerData<T extends ListenableName> = T extends 'any'
   ? any
   : T extends ChangeName
     ? {
-        eventName: 'before-change' | 'changed';
-        methodName: T;
-        [key: string]: any;
-      }
+      eventName: 'before-change' | 'changed';
+      methodName: T;
+      [key: string]: any;
+    }
     : {
-        eventName: T;
-        methodName: T extends 'initialized'
-          ? 'constructor'
-          : T extends 'before-change' | 'changed'
-            ? ChangeName
-            : T extends 'before-clone' | 'cloned' ? 'clone' : any;
-      };
+      eventName: T;
+      methodName: T extends 'initialized'
+        ? 'constructor'
+        : T extends 'before-change' | 'changed'
+          ? ChangeName
+          : T extends 'before-clone' | 'cloned' ? 'clone' : any;
+    };
 
 type PrintableText =
   | any
   | {
-      text: string;
-      alignmentX: number;
-      alignmentY: number;
-    };
+  text: string;
+  alignmentX: number;
+  alignmentY: number;
+};
 
 type URLOptions = {
   url: string;
@@ -499,7 +504,7 @@ type URLOptions = {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface Bitmap {
+interface Bitmap {
   data: Buffer;
   width: number;
   height: number;
@@ -507,7 +512,7 @@ export interface Bitmap {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface RGB {
+interface RGB {
   r: number;
   g: number;
   b: number;
@@ -516,7 +521,7 @@ export interface RGB {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface RGBA {
+interface RGBA {
   r: number;
   g: number;
   b: number;
@@ -526,7 +531,7 @@ export interface RGBA {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface FontChar {
+interface FontChar {
   id: number;
   x: number;
   y: number;
@@ -542,7 +547,7 @@ export interface FontChar {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface FontInfo {
+interface FontInfo {
   face: string;
   size: number;
   bold: number;
@@ -559,7 +564,7 @@ export interface FontInfo {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface FontCommon {
+interface FontCommon {
   lineHeight: number;
   base: number;
   scaleW: number;
@@ -575,7 +580,7 @@ export interface FontCommon {
 /**
  * @deprecated Jimp typings for TS <3.1 are being depreciated. Please upgrade your TypeScript version
  */
-export interface Font {
+interface Font {
   chars: {
     [char: string]: FontChar;
   };

@@ -1,6 +1,6 @@
 {
   "name": "@jimp/custom",
-  "version": "0.8.2",
+  "version": "0.9.3",
   "description": "Interface to customize jimp configuration",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -17,8 +17,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@jimp/core": "^0.8.2",
-    "core-js": "^2.5.7"
+    "@babel/runtime": "^7.7.2",
+    "@jimp/core": "link:../core",
+    "core-js": "^3.4.1"
   },
   "publishConfig": {
     "access": "public"

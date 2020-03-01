@@ -1,6 +1,6 @@
 {
   "name": "@jimp/utils",
-  "version": "0.8.2",
+  "version": "0.9.3",
   "description": "Utils for jimp extensions.",
   "main": "dist/index.js",
   "module": "es/index.js",
@@ -20,6 +20,7 @@
     "access": "public"
   },
   "dependencies": {
-    "core-js": "^2.5.7"
+    "@babel/runtime": "^7.7.2",
+    "core-js": "^3.4.1"
   }
 }

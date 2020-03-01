@@ -10,22 +10,36 @@ import {
   RGB
 } from './etc';
 
-export declare class Jimp {
-  // Constructors
-  constructor(path: string, cb?: ImageCallback);
-  constructor(urlOptions: URLOptions, cb?: ImageCallback);
-  constructor(image: Jimp, cb?: ImageCallback);
-  constructor(data: Buffer, cb?: ImageCallback);
-  constructor(data: Bitmap, cb?: ImageCallback);
-  constructor(w: number, h: number, cb?: ImageCallback);
-  constructor(
+interface DiffReturn<This> {
+  percent: number;
+  image: This;
+}
+
+interface ScanIteratorReturn<This> {
+  x: number;
+  y: number;
+  idx: number;
+  image: This;
+}
+
+export interface JimpConstructors {
+  new(path: string, cb?: ImageCallback<this>): this;
+  new(urlOptions: URLOptions, cb?: ImageCallback<this>): this;
+  new(image: Jimp, cb?: ImageCallback<this>): this;
+  new(data: Buffer, cb?: ImageCallback<this>): this;
+  new(data: Bitmap, cb?: ImageCallback<this>): this;
+  new(w: number, h: number, cb?: ImageCallback<this>): this;
+  new(
     w: number,
     h: number,
     background?: number | string,
-    cb?: ImageCallback
-  );
+    cb?: ImageCallback<this>
+  ): this;
   // For custom constructors when using Jimp.appendConstructorOption
-  constructor(...args: any[]);
+  new(...args: any[]): this;
+}
+
+export interface Jimp extends JimpConstructors {
   prototype: this;
   // Constants
   AUTO: -1;
@@ -64,7 +78,7 @@ export declare class Jimp {
   parseBitmap(
     data: Buffer,
     path: string | null | undefined,
-    cb?: ImageCallback
+    cb?: ImageCallback<this>
   ): void;
   hasAlpha(): boolean;
   getHeight(): number;
@@ -74,9 +88,9 @@ export declare class Jimp {
   getMIME(): string;
   getExtension(): string;
   distanceFromHash(hash: string): number;
-  write(path: string, cb?: ImageCallback): this;
-  writeAsync(path: string): Promise<Jimp>;
-  rgba(bool: boolean, cb?: ImageCallback): this;
+  write(path: string, cb?: ImageCallback<this>): this;
+  writeAsync(path: string): Promise<this>;
+  rgba(bool: boolean, cb?: ImageCallback<this>): this;
   getBase64(mime: string, cb: GenericCallback<string, any, this>): this;
   getBase64Async(mime: string): Promise<string>;
   hash(cb?: GenericCallback<string, any, this>): string;
@@ -107,19 +121,29 @@ export declare class Jimp {
     y: number,
     cb?: GenericCallback<number, any, this>
   ): number;
-  setPixelColor(hex: number, x: number, y: number, cb?: ImageCallback): this;
-  setPixelColour(hex: number, x: number, y: number, cb?: ImageCallback): this;
-  clone(cb?: ImageCallback): this;
-  cloneQuiet(cb?: ImageCallback): this;
-  background(hex: number, cb?: ImageCallback): this;
-  backgroundQuiet(hex: number, cb?: ImageCallback): this;
+  setPixelColor(
+    hex: number,
+    x: number,
+    y: number,
+    cb?: ImageCallback<this>
+  ): this;
+  setPixelColour(
+    hex: number,
+    x: number,
+    y: number,
+    cb?: ImageCallback<this>
+  ): this;
+  clone(cb?: ImageCallback<this>): this;
+  cloneQuiet(cb?: ImageCallback<this>): this;
+  background(hex: number, cb?: ImageCallback<this>): this;
+  backgroundQuiet(hex: number, cb?: ImageCallback<this>): this;
   scan(
     x: number,
     y: number,
     w: number,
     h: number,
     f: (this: this, x: number, y: number, idx: number) => any,
-    cb?: ImageCallback
+    cb?: ImageCallback<this>
   ): this;
   scanQuiet(
     x: number,
@@ -127,14 +151,14 @@ export declare class Jimp {
     w: number,
     h: number,
     f: (this: this, x: number, y: number, idx: number) => any,
-    cb?: ImageCallback
+    cb?: ImageCallback<this>
   ): this;
   scanIterator(
     x: number,
     y: number,
     w: number,
     h: number
-  ): IterableIterator<{ x: number; y: number; idx: number; image: Jimp }>;
+  ): IterableIterator<ScanIteratorReturn<this>>;
 
   // Effect methods
   composite(
@@ -142,7 +166,7 @@ export declare class Jimp {
     x: number,
     y: number,
     options?: BlendMode,
-    cb?: ImageCallback
+    cb?: ImageCallback<this>
   ): this;
 
   // Functions
@@ -150,16 +174,21 @@ export declare class Jimp {
     name: string,
     test: (...args: T[]) => boolean,
     run: (
-      this: Jimp,
-      resolve: (jimp: Jimp) => any,
+      this: this,
+      resolve: (jimp: this) => any,
       reject: (reason: Error) => any,
       ...args: T[]
     ) => any
   ): void;
-  read(path: string): Promise<this>;
-  read(image: Jimp): Promise<this>;
-  read(data: Buffer): Promise<this>;
-  read(w: number, h: number, background?: number | string): Promise<this>;
+  read(path: string, cb?: ImageCallback<this>): Promise<this>;
+  read(image: Jimp, cb?: ImageCallback<this>): Promise<this>;
+  read(data: Buffer, cb?: ImageCallback<this>): Promise<this>;
+  read(
+    w: number,
+    h: number,
+    background?: number | string,
+    cb?: ImageCallback<this>
+  ): Promise<this>;
   create(path: string): Promise<this>;
   create(image: Jimp): Promise<this>;
   create(data: Buffer): Promise<this>;
@@ -174,14 +203,7 @@ export declare class Jimp {
   intToRGBA(i: number, cb?: GenericCallback<RGBA>): RGBA;
   cssColorToHex(cssColor: string): number;
   limit255(n: number): number;
-  diff(
-    img1: Jimp,
-    img2: Jimp,
-    threshold?: number
-  ): {
-    percent: number;
-    image: Jimp;
-  };
+  diff(img1: Jimp, img2: Jimp, threshold?: number): DiffReturn<this>;
   distance(img1: Jimp, img2: Jimp): number;
   compareHashes(hash1: string, hash2: string): number;
   colorDiff(rgba1: RGB, rgba2: RGB): number;

@@ -1047,7 +1047,7 @@
     which "^1.3.1"
 
 "@jimp/bmp@link:packages/type-bmp":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1055,7 +1055,7 @@
     core-js "^3.4.1"
 
 "@jimp/core@link:packages/core":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1071,14 +1071,14 @@
     tinycolor2 "^1.4.1"
 
 "@jimp/custom@link:packages/custom":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/core" "link:packages/core"
     core-js "^3.4.1"
 
 "@jimp/gif@link:packages/type-gif":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1086,7 +1086,7 @@
     omggif "^1.0.9"
 
 "@jimp/jpeg@link:packages/type-jpeg":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1094,21 +1094,21 @@
     jpeg-js "^0.3.4"
 
 "@jimp/plugin-blit@link:packages/plugin-blit":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-blur@link:packages/plugin-blur":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-color@link:packages/plugin-color":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1116,77 +1116,77 @@
     tinycolor2 "^1.4.1"
 
 "@jimp/plugin-contain@link:packages/plugin-contain":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-cover@link:packages/plugin-cover":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-crop@link:packages/plugin-crop":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-displace@link:packages/plugin-displace":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-dither@link:packages/plugin-dither":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-flip@link:packages/plugin-flip":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-gaussian@link:packages/plugin-gaussian":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-invert@link:packages/plugin-invert":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-mask@link:packages/plugin-mask":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-normalize@link:packages/plugin-normalize":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-print@link:packages/plugin-print":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1194,28 +1194,28 @@
     load-bmfont "^1.4.0"
 
 "@jimp/plugin-resize@link:packages/plugin-resize":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-rotate@link:packages/plugin-rotate":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugin-scale@link:packages/plugin-scale":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
     core-js "^3.4.1"
 
 "@jimp/plugins@link:packages/plugins":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/plugin-blit" "link:packages/plugin-blit"
@@ -1239,7 +1239,7 @@
     timm "^1.6.1"
 
 "@jimp/png@link:packages/type-png":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/utils" "link:packages/utils"
@@ -1247,21 +1247,21 @@
     pngjs "^3.3.3"
 
 "@jimp/test-utils@link:packages/test-utils":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     core-js "^3.4.1"
     pngjs "^3.3.3"
 
 "@jimp/tiff@link:packages/type-tiff":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     core-js "^3.4.1"
     utif "^2.0.1"
 
 "@jimp/types@link:packages/types":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     "@jimp/bmp" "link:packages/type-bmp"
@@ -1273,7 +1273,7 @@
     timm "^1.6.1"
 
 "@jimp/utils@link:packages/utils":
-  version "0.9.2"
+  version "0.9.3"
   dependencies:
     "@babel/runtime" "^7.7.2"
     core-js "^3.4.1"
@@ -2800,9 +2800,9 @@ bmp-js@^0.1.0:
   resolved "https://registry.yarnpkg.com/bmp-js/-/bmp-js-0.1.0.tgz#e05a63f796a6c1ff25f4771ec7adadc148c07233"
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
-  integrity sha512-ItfYfPLkWHUjckQCk8xC+LwxgK8NYcXywGigJgSwOP8Y2iyWT4f2vsZnoOXTTbo+o5yXmIUJ4gn5538SO5S3gA==
+  version "4.11.9"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.9.tgz#26d556829458f9d1e81fc48952493d0ba3507828"
+  integrity sha512-E6QoYqCKZfgatHTdHzs1RRKP7ip4vvm+EyRUeE2RF0NblwVvb0p6jSVeNTOFxPn26QXN2o6SMfNxKp6kU8zQaw==
 
 body-parser@1.19.0, body-parser@^1.16.1:
   version "1.19.0"
@@ -4438,9 +4438,9 @@ elegant-spinner@^1.0.1:
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
 elliptic@^6.0.0:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.1.tgz#c380f5f909bf1b9b4428d028cd18d3b0efd6b52b"
-  integrity sha512-xvJINNLbTeWQjrl6X+7eQCrIy/YPv5XCpKW6kB5mKvtnGILoLDcySuwomfdzt0BMdLNVnuRNTuzKNHj0bva1Cg==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.3.tgz#cb59eb2efdaf73a0bd78ccd7015a62ad6e0f93d6"
+  integrity sha512-IMqzv5wNQf+E6aHeIqATs0tOLeOTwj1QKbRcS3jBbYkl5oLAserA8yJTT7/VyHUYG91PRmPyeQDObKLPpeS4dw==
   dependencies:
     bn.js "^4.4.0"
     brorand "^1.0.1"
